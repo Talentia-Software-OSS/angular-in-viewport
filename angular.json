@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "@talentia/angular-in-viewport": {
+      "projectType": "library",
+      "root": "projects/angular-in-viewport",
+      "sourceRoot": "projects/angular-in-viewport/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angular-in-viewport/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-in-viewport/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-in-viewport/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    }
+  }
+}

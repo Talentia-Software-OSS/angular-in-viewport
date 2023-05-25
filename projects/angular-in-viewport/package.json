@@ -1,0 +1,32 @@
+{
+  "name": "@talentia/angular-in-viewport",
+  "title": "Angular InViewport Directive",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^15.2.9",
+    "@angular/core": "^15.2.9"
+  },
+  "sideEffects": false,
+  "author": {
+    "name": "Leonardo Cavone",
+    "url": "https://github.com/Talentia-Software-OSS"
+  },
+  "repository": {
+    "url": "https://github.com/Talentia-Software-OSS/angular-in-viewport",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/Talentia-Software-OSS/angular-in-viewport/issues"
+  },
+  "homepage": "https://github.com/Talentia-Software-OSS/angular-in-viewport",
+  "readme": "README.md",
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "keywords": [
+    "angular",
+    "ng",
+    "IntersectionObserver",
+    "intersection-observer",
+    "viewport"
+  ]
+}
