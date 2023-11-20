@@ -12,14 +12,15 @@ export class InViewportDirective implements OnInit, OnDestroy {
   @Input() oneTime: boolean
   @Output() inViewport: EventEmitter<any>;
 
-  private platformId: string;
   private elementRef: ElementRef;
   private inViewportService: InViewportService;
+  private isBrowser: boolean;
   
   constructor() {
-    this.platformId = inject<string>(PLATFORM_ID);
+    const platformId = inject<string>(PLATFORM_ID);    
     this.elementRef = inject<ElementRef<Element>>(ElementRef);
-    this.inViewportService = inject(InViewportService);  
+    this.inViewportService = inject(InViewportService);
+    this.isBrowser = isPlatformBrowser(platformId);
     this.preRender = true;
     this.oneTime = false;
     this.inViewport = new EventEmitter();
@@ -27,7 +28,7 @@ export class InViewportDirective implements OnInit, OnDestroy {
   
   ngOnInit(): void {
     const _this = this;
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser) {
         if (this.oneTime) {
             this.inViewportService
                 .observe(this.elementRef.nativeElement)
