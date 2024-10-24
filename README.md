@@ -1,10 +1,10 @@
 # @talentia/angular-in-viewport
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/angular-in-viewport` directory.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/angular-in-viewport` directory.
 
 ## Further help
 

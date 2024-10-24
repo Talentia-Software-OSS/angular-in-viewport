@@ -1,9 +1,9 @@
 {
   "name": "angular-in-viewport",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "ng": "ng",
-    "build": "ng build"
+    "build": "ng build @talentia/angular-in-viewport --configuration production"
   },
   "private": true,
   "dependencies": {
@@ -20,8 +20,8 @@
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "16.2.10",
-    "@angular/cli": "16.2.10",
+    "@angular-devkit/build-angular": "16.2.16",
+    "@angular/cli": "16.2.16",
     "@angular/compiler-cli": "16.2.12",
     "ng-packagr": "16.2.3",
     "typescript": "4.9.5"
