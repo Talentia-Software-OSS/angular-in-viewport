@@ -1,10 +1,12 @@
 {
   "name": "@talentia/angular-in-viewport",
   "title": "Angular InViewport Directive",
-  "version": "1.0.4",
+  "version": "1.0.5",
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
   "peerDependencies": {
-    "@angular/common": "^17.0.0",
-    "@angular/core": "^17.0.0"
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0"
   },
   "sideEffects": false,
   "author": {
@@ -20,8 +22,6 @@
   },
   "homepage": "https://github.com/Talentia-Software-OSS/angular-in-viewport",
   "readme": "README.md",
-  "license": "MIT",
-  "licenseFilename": "LICENSE",
   "keywords": [
     "angular",
     "ng",

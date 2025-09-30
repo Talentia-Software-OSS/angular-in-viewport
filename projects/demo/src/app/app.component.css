@@ -1,0 +1,51 @@
+.header.sticky {
+  position: sticky;
+  top:0;
+  background: purple;
+  height: 150px;
+}
+.header.title {
+  text-align: center;
+  color: white;
+  margin: 0;
+  height: 50px;
+  line-height: 50px;
+}
+.header.description {
+  text-align: center;
+  color: white;
+  height: 25px;
+  line-height: 25px;
+}
+.header.debug {
+  color: white;
+  text-align: center;
+}
+.header.debug.title {
+  height: 25px;
+  line-height: 25px;
+  text-decoration: underline;
+}
+.header.debug.info {
+  height: 50px;
+  line-height: 50px;
+}
+section {
+  display: flex;
+  zoom: 0.8;
+  margin-top: 1800px;
+}
+section article {
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  margin: 10px;
+  background: aqua;
+}
+
+section article div {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+}

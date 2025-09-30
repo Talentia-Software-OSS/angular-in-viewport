@@ -14,7 +14,7 @@ export const untilDestroy = function(component: any) {
         addDestroyObservableToComponent(component);
     }
     // pipe in the takeUntil destroy$ and return the source unaltered
-    return takeUntil(component[destroy$]);
+    return takeUntil<any>(component[destroy$]);
 };
 /**
  * @internal
@@ -30,7 +30,7 @@ export function addDestroyObservableToComponent(component: any): void {
         // replace the ngOndestroy
         component.ngOnDestroy = function () {
             // fire off the destroy observable
-            observer.next();
+            observer.next(undefined);
             // complete the observable
             observer.complete();
             // and at last, call the original destroy
