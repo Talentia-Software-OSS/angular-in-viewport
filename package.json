@@ -1,7 +1,6 @@
 {
   "name": "angular-in-viewport",
   "version": "1.0.5",
-  "private": true,
   "scripts": {
     "ng": "ng",
     "build": "npm-run-all -s clean:build build:prod",
