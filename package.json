@@ -10,6 +10,8 @@
     "build:dev": "ng build @talentia/angular-in-viewport --configuration development",
     "watch:lib": "ng build @talentia/angular-in-viewport --configuration development --watch",
     "watch:demo": "wait-on dist/angular-in-viewport/package.json && ng serve demo",
+    "demo:dev": "ng build demo --configuration development",
+    "demo:prod": "ng build demo --configuration production",
     "clean:build": "rimraf dist .angular",
     "clean:modules": "rimraf node_modules",
     "clean:all": "npm-run-all -p clean:build clean:modules"

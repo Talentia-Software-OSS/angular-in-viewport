@@ -43,7 +43,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Run build
+    - name: Run build library
       run: npm run build:prod --if-present
 
-
+    - name: Run build app
+      run: npm run demo:prod --if-present
