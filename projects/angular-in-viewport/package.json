@@ -1,6 +1,7 @@
 {
   "name": "@talentia/angular-in-viewport",
   "title": "Angular InViewport Directive",
+  "description": "An Angular directive to detect when an element is within the browser viewport.",
   "version": "1.0.5",
   "license": "MIT",
   "licenseFilename": "LICENSE",

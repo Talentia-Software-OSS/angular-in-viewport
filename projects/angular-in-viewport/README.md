@@ -1,6 +1,6 @@
 # @talentia/angular-in-viewport
 
-A lightweight library for Angular that detects when an element is within the browser viewport.
+An Angular directive to detect when an element is within the browser viewport.
 
 ## Build & Run
 
