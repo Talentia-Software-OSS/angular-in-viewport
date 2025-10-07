@@ -6,7 +6,6 @@ import { untilDestroy } from '../operators/until-destroy.operator';
 
 @Directive({
   standalone: false,
-  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[ngxInViewPort]'
 })
 export class InViewportDirective implements OnInit, OnDestroy {
@@ -60,6 +59,5 @@ export class InViewportDirective implements OnInit, OnDestroy {
     }
   }
 
-  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method, @typescript-eslint/no-empty-function
   ngOnDestroy(): void {}
 }
