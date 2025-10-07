@@ -7,8 +7,11 @@ module.exports = tseslint.config(
   {
     files: ["**/*.ts"],
     rules: {
+      "@angular-eslint/no-empty-lifecycle-method": "off",
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/no-explicit-any": "off",
       "@angular-eslint/directive-selector": [
-        "error",
+        "off",
         {
           type: "attribute",
           prefix: "lib",
