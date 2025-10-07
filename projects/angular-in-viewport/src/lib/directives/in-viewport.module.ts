@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
+import { InViewportDirective } from './in-viewport.directive';
 import { CommonModule } from '@angular/common';
-import { InViewportDirective } from './in-view-port.directive';
-import { InViewportService } from './in-view-port.service';
 
 @NgModule({
   imports: [ CommonModule],
