@@ -7,32 +7,26 @@ import { filter, finalize, Subject } from 'rxjs';
 export class InViewportService {
   private options: IntersectionObserverInit;
   private callback$: Subject<IntersectionObserverEntry>
-  private observer: IntersectionObserver;  
+  private observer: IntersectionObserver;
 
   constructor() {
-    this.options = {
-        rootMargin: '0px 0px 0px 0px',
-        threshold: [0.5],
-    };
-    this.callback$ = new Subject();
+    this.options = { rootMargin: '0px 0px 0px 0px', threshold: [0.5] };
+    this.callback$ = new Subject<IntersectionObserverEntry>();
     this.observer = new IntersectionObserver(this.handler.bind(this), this.options);
   }
 
-  private handler(entries: IntersectionObserverEntry[] = []) {
-    entries.forEach((entry: IntersectionObserverEntry) => { 
-      return this.callback$.next(entry); 
-    });
-   }
+  private handler(entries: IntersectionObserverEntry[] = []): void {
+    entries.forEach((entry: IntersectionObserverEntry) => this.callback$.next(entry));
+  }
 
-  observe (element: Element) {
+  observe(element: Element) {
     this.observer.observe(element);
     return this.callback$.asObservable().pipe(
-      filter(function(entry) { 
-        return entry.target === element; 
-      }), 
+      filter((entry: IntersectionObserverEntry) => entry.target === element),
       finalize(() => {
-       return this.observer.unobserve(element); 
-      }));
-   }
+        return this.observer.unobserve(element);
+      })
+    );
+  }
 }
 

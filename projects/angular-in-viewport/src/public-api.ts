@@ -5,4 +5,3 @@
 export * from './lib/directives/in-viewport.service';
 export * from './lib/directives/in-viewport.directive';
 export * from './lib/directives/in-viewport.module';
-export * from './lib/operators/until-destroy.operator';
