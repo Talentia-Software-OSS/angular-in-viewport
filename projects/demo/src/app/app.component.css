@@ -2,37 +2,39 @@
   position: sticky;
   top:0;
   background: purple;
-  height: 150px;
+  height: 180px;
 }
 .header.title {
   text-align: center;
   color: white;
   margin: 0;
   height: 50px;
-  line-height: 50px;
 }
 .header.description {
   text-align: center;
   color: white;
   height: 25px;
-  line-height: 25px;
 }
-.header.debug {
+.header.info {
   color: white;
   text-align: center;
 }
-.header.debug.title {
+.header.info.title {
   height: 25px;
-  line-height: 25px;
   text-decoration: underline;
 }
-.header.debug.info {
-  height: 50px;
-  line-height: 50px;
+.header.info.debug {
+  height: 35px;
+}
+.header.info.button {
+  height: 25px;
 }
 section {
   display: flex;
-  zoom: 0.8;
+  zoom: 0.8;  
+}
+
+section.container-observed {
   margin-top: 1800px;
 }
 section article {
