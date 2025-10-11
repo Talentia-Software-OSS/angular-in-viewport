@@ -3,10 +3,11 @@
   <div class="header description">
     A lightweight library for Angular that detects when an element is within the browser viewport.    
   </div>
-  <div class="header debug title">Scroll down to see the effect</div>
-  <div class="header debug info">{{ debugInfo }}</div>
+  <div class="header info title">Scroll down to see the effect</div>
+  <div class="header info debug">{{ debugInfo }}</div>
+  <div class="header info button"><button (click)="toggle()">Toggle Element</button></div>
 </header>
-<section>
+<section *ngIf="visible" class="container-observed">
   <article>
     <div id="element-observed" ngxInViewPort [oneTime]="false" (inViewport)="show($event)">
       <ng-container *ngIf="showElement"><h2>element observed</h2></ng-container>
