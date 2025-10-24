@@ -2,48 +2,49 @@
   position: sticky;
   top:0;
   background: purple;
-  height: 180px;
+  height: 140px;
+  opacity: 0.8;
 }
+
 .header.title {
   text-align: center;
   color: white;
   margin: 0;
-  height: 50px;
+  line-height: 50px;
 }
+
 .header.description {
   text-align: center;
   color: white;
-  height: 25px;
+  line-height: 25px;
 }
+
 .header.info {
   color: white;
   text-align: center;
 }
+
 .header.info.title {
-  height: 25px;
+  line-height: 25px;
   text-decoration: underline;
 }
+
 .header.info.debug {
-  height: 35px;
+  line-height: 35px;
 }
-.header.info.button {
-  height: 25px;
-}
+
 section {
   display: flex;
+  flex-direction: column;
   zoom: 0.8;  
 }
 
-section.container-observed {
-  margin-top: 1800px;
-}
 section article {
   flex: 1;
   display: flex;
   justify-content: space-around;
   padding: 10px;
   margin: 10px;
-  background: aqua;
 }
 
 section article div {
