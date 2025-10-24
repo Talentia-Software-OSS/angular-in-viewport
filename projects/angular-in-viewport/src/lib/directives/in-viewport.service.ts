@@ -21,12 +21,12 @@ export class InViewportService {
 
   observe(element: Element) {
     this.observer.observe(element);
-    return this.callback$.asObservable().pipe(
-      filter((entry: IntersectionObserverEntry) => entry.target === element),
-      finalize(() => {
-        return this.observer.unobserve(element);
-      })
-    );
+    return this.callback$
+      .asObservable()
+      .pipe (
+        filter((entry: IntersectionObserverEntry) => entry.target === element),
+        finalize(() => this.observer.unobserve(element))
+      );
   }
 }
 
