@@ -1,17 +1,18 @@
 <header class="header sticky">
   <h1 class="header title">{{ title }}</h1>
   <div class="header description">
-    A lightweight library for Angular that detects when an element is within the browser viewport.    
+    A lightweight library for Angular that detects when an element is within the browser viewport.
   </div>
-  <div class="header info title">Scroll down to see the effect</div>
-  <div class="header info debug">{{ debugInfo }}</div>
-  <div class="header info button"><button (click)="toggle()">Toggle Element</button></div>
+  <div class="header info title">Scroll down to see the effect.</div>
+  <div class="header info debug">View events in Dev Console.</div>
 </header>
-<section *ngIf="visible" class="container-observed">
-  <article>
-    <div id="element-observed" ngxInViewPort [oneTime]="false" (inViewport)="show($event)">
-      <ng-container *ngIf="showElement"><h2>element observed</h2></ng-container>
+<section>
+  @for (element of elements; track element.id) {
+  <article class="element-block">
+    <div id="element-{{ element.id }}" ngxInViewPort [oneTime]="false" (inViewport)="onInViewport($event)">
+      <h2>{{ element.name }}</h2>
     </div>
   </article>
+  } 
 </section>
 <router-outlet />
