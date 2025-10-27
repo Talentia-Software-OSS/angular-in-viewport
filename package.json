@@ -19,7 +19,10 @@
     "lint:lib": "ng lint @talentia/angular-in-viewport",
     "lint:app": "ng lint demo",
     "lint:lib-fix": "ng lint @talentia/angular-in-viewport --fix",
-    "lint:app-fix": "ng lint demo --fix"
+    "lint:app-fix": "ng lint demo --fix",
+    "madge:lib": "madge --circular --ts-config ./projects/angular-in-viewport/tsconfig.lib.prod.json --extensions ts ./projects/angular-in-viewport/src/",
+    "madge:demo": "madge --circular --ts-config ./projects/demo/tsconfig.app.json --extensions ts ./projects/demo/src/",
+    "update-browserslist": "npx update-browserslist-db@latest"
   },
   "dependencies": {
     "@angular/animations": "19.2.15",
