@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnInit, PLATFORM_ID, DestroyRef, inject, input, output } from '@angular/core';
+import { Directive, ElementRef, OnInit, PLATFORM_ID, DestroyRef, inject, EventEmitter, Input, Output } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { filter, take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -9,9 +9,9 @@ import { InViewportService } from './in-viewport.service';
   selector: '[ngxInViewPort]'
 })
 export class InViewportDirective implements OnInit {
-  readonly preRender = input(true);
-  readonly oneTime = input(false);
-  readonly inViewport = output<IntersectionObserverEntry>();
+  @Input() preRender = true;
+  @Input() oneTime = false;
+  @Output() inViewport = new EventEmitter<IntersectionObserverEntry>();
 
   private destroyRef = inject(DestroyRef);
   private elementRef = inject(ElementRef);
@@ -20,8 +20,7 @@ export class InViewportDirective implements OnInit {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const oneTime = this.oneTime();
-      if (oneTime) {
+      if (this.oneTime) {
         this.viewportService
           .observe(this.elementRef.nativeElement)
           .pipe(
@@ -43,8 +42,7 @@ export class InViewportDirective implements OnInit {
       }
     }
     else {
-      const preRender = this.preRender();
-      if (preRender) {
+      if (this.preRender) {
         const entry: Partial<IntersectionObserverEntry> = {
           isIntersecting: true,
           intersectionRatio: 1
