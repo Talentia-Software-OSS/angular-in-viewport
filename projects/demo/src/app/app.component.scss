@@ -29,6 +29,11 @@
   text-decoration: underline;
 }
 
+.header.info.badge {
+  line-height: 35px;
+  font-weight: bold;
+}
+
 .header.info.debug {
   line-height: 35px;
 }
@@ -51,4 +56,16 @@ section article div {
   padding: 10px;
   margin: 10px;
   border: 1px solid black;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+section article div.in-viewport {
+  background-color: #e8f5e9;
+  border-color: #4caf50;
+}
+
+.status {
+  display: block;
+  font-size: 0.8em;
+  color: #555;
 }

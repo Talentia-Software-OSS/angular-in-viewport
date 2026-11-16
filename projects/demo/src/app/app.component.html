@@ -4,15 +4,18 @@
     A lightweight library for Angular that detects when an element is within the browser viewport.
   </div>
   <div class="header info title">Scroll down to see the effect.</div>
-  <div class="header info debug">View events in Dev Console.</div>
+  <div class="header info badge">{{ visibleIds.size }} element(s) in viewport</div>
 </header>
 <section>
   @for (element of elements; track element.id) {
   <article class="element-block">
-    <div id="element-{{ element.id }}" ngxInViewPort [oneTime]="false" (inViewport)="onInViewport($event)">
+    <div id="element-{{ element.id }}" ngxInViewPort [oneTime]="false"
+         (inViewport)="onInViewport($event, element.id)"
+         [class.in-viewport]="visibleIds.has(element.id)">
       <h2>{{ element.name }}</h2>
+      <span class="status">{{ visibleIds.has(element.id) ? 'In Viewport' : 'Out of Viewport' }}</span>
     </div>
   </article>
-  } 
+  }
 </section>
 <router-outlet />

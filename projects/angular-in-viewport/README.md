@@ -6,12 +6,38 @@ An Angular directive to detect when an element is within the browser viewport.
 
 Run `npm run build` to build the library. The build artifacts will be stored in the `dist/angular-in-viewport` directory.
 Run `npm run start` to build the library and run the demo.
-Run `npm run watch` to run the in watch mode the library and demo.
+Run `npm run watch` to run the library and the demo in watch mode.
+
+## Compatibility
+
+| @talentia/angular-in-viewport | Angular |
+| ----------------------------- | ------- |
+| 1.0.11                        | 21.x    |
+| 1.0.10                        | 20.x    |
+| 1.0.7 - 1.0.9                 | 19.x    |
+| 1.0.5 - 1.0.6                 | 18.x    |
+| 1.0.4                         | 17.x    |
+| 1.0.2 - 1.0.3                 | 16.x    |
+| 1.0.0 - 1.0.1                 | 15.x    |
 
 ## Install
 
 ```bash
 npm i @talentia/angular-in-viewport
+```
+
+Import `InViewportModule` in your `NgModule` (or in the `imports` of a standalone component):
+
+```ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { InViewportModule } from '@talentia/angular-in-viewport';
+
+@NgModule({
+  imports: [CommonModule, InViewportModule],
+  declarations: [MyComponent]
+})
+export class MyModule { }
 ```
 
 ## Usage
@@ -39,7 +65,7 @@ npm i @talentia/angular-in-viewport
 
 ```ts
   show(event: Partial<IntersectionObserverEntry>, image: ImageItem) {
-    if (event.intersectionRatio >= 0.5) {
+    if ((event.intersectionRatio ?? 0) >= 0.5) {
       image.show = true;
     }
   }
@@ -49,23 +75,33 @@ npm i @talentia/angular-in-viewport
 
 1. Trigger only one time : `[oneTime]="true"` use case: image loading.
 2. Server-Side Rendering : By default, loads the elements on the server.
-   > If you do not want to pre-render the elements in server, you can set `preRender to false. i.e.,`[preRender]="false"`
+   > If you do not want to pre-render the elements in server, you can set `preRender` to false, i.e. `[preRender]="false"`
 
 ### InViewport Service
 
 > You can use `InViewportService` itself in any Component
 
 ```typescript
-import { ElementRef, OnDestroy, OnInit } from '@angular/core';
-import { untilDestroy, InViewportService } from '@talentia/angular-in-viewport';
+import { Component, DestroyRef, ElementRef, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { InViewportService } from '@talentia/angular-in-viewport';
 
-export class ViewportDemoComponent implements OnInit, OnDestroy {
-  public constructor(private element: ElementRef, private viewportService: InViewportService) {}
+@Component({
+  standalone: false,
+  selector: 'app-viewport-demo',
+  template: '...'
+})
+export class ViewportDemoComponent implements OnInit {
+  public constructor(
+    private element: ElementRef,
+    private destroyRef: DestroyRef,
+    private viewportService: InViewportService
+  ) {}
 
   public ngOnInit(): void {
     this.viewportService
       .observe(this.element.nativeElement)
-      .pipe(untilDestroy(this))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           this.show();
@@ -74,8 +110,6 @@ export class ViewportDemoComponent implements OnInit, OnDestroy {
         }
       });
   }
-
-  ngOnDestroy() {}
 
   private show(): void {
     // => Animation
@@ -89,9 +123,9 @@ export class ViewportDemoComponent implements OnInit, OnDestroy {
 
 ## Further help
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
+This project currently uses [Angular CLI](https://github.com/angular/angular-cli) version 21.2.25.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ## Reference
 

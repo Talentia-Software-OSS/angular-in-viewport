@@ -12,14 +12,17 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'Talentia InViewport Directive';
-  elements = Array.from({ length: 20 }).map((_, i) => {
-    return { id: i + 1, name: `Element ${i + 1}` };
-  });
+  elements = Array.from({ length: 20 }).map((_, i) => ({
+    id: i + 1,
+    name: `Element ${i + 1}`
+  }));
+  visibleIds = new Set<number>();  
 
-  onInViewport(event: Partial<IntersectionObserverEntry>) {
-    if (event && event.intersectionRatio && event.intersectionRatio >= 0.5) {
-      const element = event.target as Element;
-      console.log(`Element with id "${element.id}" is in viewport (timestamp: ${Date.now()})`);
+  onInViewport(event: IntersectionObserverEntry, id: number): void {
+    if (event.isIntersecting) {
+      this.visibleIds.add(id);
+    } else {
+      this.visibleIds.delete(id);
     }
   }
 }
